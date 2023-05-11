@@ -3,13 +3,14 @@ const app = express()
 const cors = require("cors")
 const mongoose = require("mongoose")
 const {userRouter } = require("./Routes/user.route")
+const { quizrouter } = require("./Routes/quiz.route")
 
 require("dotenv").config()
 app.use(cors())
 app.use(express.json())
 
 app.use("/user",userRouter)
-
+app.use("/quiz",quizrouter)
 
 
 app.listen(process.env.port, () => {

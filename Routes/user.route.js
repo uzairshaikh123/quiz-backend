@@ -12,7 +12,7 @@ userRouter.post("/signup",async (req,res)=>{
     try {
         let findemail= await userModel.find({email})
         if(findemail.length){
-            res.status(200).send({"msg":"User Already Exist"})
+            res.status(500).send({"msg":"User Already Exist"})
         }else{
             bcrypt.hash(password, 5, async function(err, hash) {
               let data = new userModel({email,password:hash})
