@@ -4,12 +4,14 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const {userRouter } = require("./Routes/user.route")
 const { quizrouter } = require("./Routes/quiz.route")
+const { leaderboardroute } = require("./Routes/leaderboard.route")
 
 require("dotenv").config()
 app.use(cors())
 app.use(express.json())
 
 app.use("/user",userRouter)
+app.use("/leaderboard",leaderboardroute)
 app.use("/quiz",quizrouter)
 
 
